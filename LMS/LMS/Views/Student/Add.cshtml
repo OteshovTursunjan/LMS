@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "New Student";
+}
+<div>
+    <h3>Новый студент</h3>
+    <form method="post">
+        <table>
+            <tr>
+                <td><p> Введите имя </p></td>
+                <td><input type="text" name="Name" /></td>
+            </tr>
+            <tr>
+                <td><p> Введите id контракта </p></td>
+                <td><input type="number" name="groupId" /></td>
+            </tr>
+            <tr>
+                <td><p> Введите Id группы </p></td>
+                <td><input type="number" name="ContractId" /></td>
+            </tr>
+            <tr><td><input type="submit" value="Добавить" /></td></tr>
+        </table>
+    </form>
+</div>

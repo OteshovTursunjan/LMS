@@ -1,0 +1,21 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Удалить группы";
+}
+
+<div>
+    <h3>Форма для удаление</h3>
+    <form method="post">
+        <table>
+            <tr>
+                <td><p>Введите Id группы </p></td>
+                <td><input type="number" name="Id" /> </td>
+
+                <td><p>Введите новое название группы </p></td>
+                <td><input type="text" name="Name" /> </td>
+            </tr>
+
+            <tr><td><input type="submit" value="Отправить" /> </td><td></td></tr>
+        </table>
+    </form>
+</div>

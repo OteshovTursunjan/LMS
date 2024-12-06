@@ -2,6 +2,124 @@
     ViewData["Title"] = "Home Page";
 }
 
+<p>@ViewData["Hello"]</p>
+<p>@ViewData["Test"]</p>
+<br />
+<br />
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #f4f4f4;
+        font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .table-title {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-around;
+        gap: 20px;
+    }
+
+    .table-wrapper {
+        flex: 1;
+    }
+</style>
+
+<div class="container">
+    <div class="table-wrapper">
+        <p class="table-title">Students</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Group</th>
+                    <th>Contract</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var st in ViewBag.Students)
+                {
+                    <tr>
+                        <td>@st.ID</td>
+                        <td>@st.Name</td>
+                        <td>@st.Group.Name</td>
+                        <td>@st.Contract.Name</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-wrapper">
+        <p class="table-title">Group</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var group in ViewBag.Group)
+                {
+                    <tr>
+                        <td>@group.Id</td>
+                        <td>@group.Name</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-wrapper">
+        <p class="table-title">Contracts</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var contract in ViewBag.Contracts)
+                {
+                    <tr>
+                        <td>@contract.Id</td>
+                        <td>@contract.Name</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>

@@ -25,6 +25,25 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item">
+                            <!-- Выпадающий список для группы -->
+                            <select id="groupActions" class="form-select" onchange="navigateToGroupAction()">
+                                <option value="" disabled selected>Group Actions</option>
+                                <option value="@Url.Action("Add", "Group")">Add group</option>
+                                <option value="@Url.Action("Update", "Group")">Update group</option>
+                                <option value="@Url.Action("Delete", "Group")">Delete group</option>
+                            </select>
+                        </li>
+                        <li class="nav-item">
+                            <!-- Выпадающий список для студентов -->
+                            <select id="studentAction" class="form-select" onchange="navigateToStudentAction()">
+                                <option value="" disabled selected>Student Actions</option>
+                                <option value="@Url.Action("Add", "Student")">Add Student</option>
+                                <option value="@Url.Action("Update", "Student")">Update Student</option>
+                                <option value="@Url.Action("Delete", "Student")">Delete Student</option>
+                            </select>
+                        </li>
+                        <li class="nav-item"
                     </ul>
                 </div>
             </div>
@@ -44,6 +63,22 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        // Скрипт для навигации при выборе опции в combobox
+        function navigateToGroupAction() {
+            const selectedValue = document.getElementById('groupActions').value;
+            if (selectedValue) {
+                window.location.href = selectedValue;
+            }
+        }
+
+        function navigateToStudentAction() {
+            const selectedValue = document.getElementById('studentAction').value;
+            if (selectedValue) {
+                window.location.href = selectedValue;
+            }
+        }
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
