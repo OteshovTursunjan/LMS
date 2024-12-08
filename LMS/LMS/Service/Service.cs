@@ -136,7 +136,7 @@ namespace LMS.Service
             {
                 Name = dto.Name,
                 Password = dto.Password,
-                Role = dto.Role,
+                Email = dto.Email,
                 Login = dto.Login,
                 IsDelete = false
             };
@@ -148,7 +148,7 @@ namespace LMS.Service
                 {
                     Name = dto.Name,
                     Login = dto.Login,
-                    Role = dto.Role,
+                    
                 }
             };
 
@@ -162,7 +162,7 @@ namespace LMS.Service
 
             res.Name = dto.Name;
             res.Password = dto.Password;
-            res.Role = dto.Role;
+            res.Email = dto.Email;
             await _userRepository.UpdateAsync(res);
             return new ResponseDTO<UserResponseDTO>()
             {
