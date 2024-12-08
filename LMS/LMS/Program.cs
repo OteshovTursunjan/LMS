@@ -2,6 +2,9 @@ using LMS.Context;
 using LMS.Repository;
 using LMS.Service;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+
+using LMS.Models;
 
 namespace LMS
 {
@@ -11,24 +14,27 @@ namespace LMS
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+
+
             builder.Services.AddControllersWithViews();
-            string connectionString = "Host=localhost;Port=5432; Database=Git_LMS; " +
+            string connectionStrings = "Host=localhost;Port=5432; Database=Git_LMS; " +
             "Username=postgres; Password=123";
 
             builder.Services.AddScoped<IUserRepository, UserRepository>();
 
-            builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connectionString));
+            builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connectionStrings));
+
+
+        
             builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             builder.Services.AddScoped<IGroupRepository, GroupRepository>();
             builder.Services.AddScoped<IContractRepository, ContractRepository>();
             builder.Services.AddScoped<ISubjectRepository, SubjectRepository>();
             builder.Services.AddScoped<IStudentRepository, StudentRepository>();
             builder.Services.AddScoped<IWorkTableRepository, WorkTableRepository>();
-
+           
             builder.Services.AddScoped<IAppService, AppService>();
-
-
+            
 
             var app = builder.Build();
 
