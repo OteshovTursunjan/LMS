@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="MediatR" Version="12.4.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
       <PrivateAssets>all</PrivateAssets>
@@ -22,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\LMS.Application\LMS.Application\LMS.Application.csproj" />
     <ProjectReference Include="..\..\LMS.Domain\LMS.Domain\LMS.Domain.csproj" />
     <ProjectReference Include="..\..\LMS.Infrastructure\LMS.Infrastructure\LMS.Infrastructure.csproj" />
   </ItemGroup>

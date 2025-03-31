@@ -16,6 +16,18 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.3" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="RabbitMQ.Client" Version="7.1.2" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Feature\AcademicGrade\Command\" />
+    <Folder Include="Feature\AcademicGrade\Handler\" />
+    <Folder Include="Feature\AcademicGrade\Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\LMS.Domain\LMS.Domain\LMS.Domain.csproj" />
+    <ProjectReference Include="..\..\LMS.Infrastructure\LMS.Infrastructure\LMS.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
