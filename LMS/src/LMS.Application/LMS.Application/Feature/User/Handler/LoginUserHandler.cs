@@ -36,10 +36,10 @@ namespace LMS.Application.Feature.User.Handler
             }
 
             bool checkPassword = await _userManager.CheckPasswordAsync(user, request.LoginUser.Password);
-            if (!checkPassword)
-            {
-                return null;
-            }
+            //if (!checkPassword)
+            //{
+            //    return null;
+            //}
 
             var jwtSecret = _configuration["JwtOptions:SecretKey"]
                 ?? throw new InvalidOperationException("JWT Secret Key is not configured");
@@ -65,8 +65,7 @@ namespace LMS.Application.Feature.User.Handler
                 signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
             );
 
-
-
+          
             return new ReturnRegisterModel
             {
                 Email = request.LoginUser.Email,

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LMS.API.Controllers
 {
-    [Authorize("Admin")]
+  
     public class UserController : Controller
     {
         private readonly IMediator mediator;
@@ -30,6 +30,7 @@ namespace LMS.API.Controllers
             var res = await mediator.Send(new  LoginUserCommand(loginUserModel));
             return Ok(res);
         }
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
