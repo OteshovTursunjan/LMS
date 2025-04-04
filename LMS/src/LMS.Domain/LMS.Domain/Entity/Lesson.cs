@@ -10,7 +10,7 @@ namespace LMS.Domain.Entity
 {
     public  class Lesson : BaseEntity, IAuditedEntity
     {
-        public Subject Subject { get; set; }
+     
         public Guid SubjcetID { get; set; }
 
         public Teacher Teachers { get; set; }

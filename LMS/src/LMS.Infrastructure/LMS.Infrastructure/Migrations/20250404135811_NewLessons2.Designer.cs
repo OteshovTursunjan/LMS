@@ -3,6 +3,7 @@ using System;
 using LMS.Infrastructure.Persistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LMS.Infrastructure.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20250404135811_NewLessons2")]
+    partial class NewLessons2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -241,6 +244,9 @@ namespace LMS.Infrastructure.Migrations
                     b.Property<Guid>("SubjcetID")
                         .HasColumnType("uuid");
 
+                    b.Property<Guid>("Subjectid")
+                        .HasColumnType("uuid");
+
                     b.Property<Guid>("TeacherID")
                         .HasColumnType("uuid");
 
@@ -253,6 +259,8 @@ namespace LMS.Infrastructure.Migrations
                     b.HasKey("id");
 
                     b.HasIndex("GroupID");
+
+                    b.HasIndex("Subjectid");
 
                     b.HasIndex("TeacherID");
 
@@ -621,6 +629,12 @@ namespace LMS.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("LMS.Domain.Entity.Subject", "Subject")
+                        .WithMany()
+                        .HasForeignKey("Subjectid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("LMS.Domain.Entity.Teacher", "Teachers")
                         .WithMany()
                         .HasForeignKey("TeacherID")
@@ -628,6 +642,8 @@ namespace LMS.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Groups");
+
+                    b.Navigation("Subject");
 
                     b.Navigation("Teachers");
                 });

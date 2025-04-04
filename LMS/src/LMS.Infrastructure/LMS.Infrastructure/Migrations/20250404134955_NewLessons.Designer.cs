@@ -3,6 +3,7 @@ using System;
 using LMS.Infrastructure.Persistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LMS.Infrastructure.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20250404134955_NewLessons")]
+    partial class NewLessons
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -241,6 +244,9 @@ namespace LMS.Infrastructure.Migrations
                     b.Property<Guid>("SubjcetID")
                         .HasColumnType("uuid");
 
+                    b.Property<Guid>("Subjectid")
+                        .HasColumnType("uuid");
+
                     b.Property<Guid>("TeacherID")
                         .HasColumnType("uuid");
 
@@ -254,9 +260,59 @@ namespace LMS.Infrastructure.Migrations
 
                     b.HasIndex("GroupID");
 
+                    b.HasIndex("Subjectid");
+
                     b.HasIndex("TeacherID");
 
                     b.ToTable("Lessons");
+                });
+
+            modelBuilder.Entity("LMS.Domain.Entity.Lessons", b =>
+                {
+                    b.Property<Guid>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("CreatBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<Guid>("GroupID")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("LessonTime")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Room")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("SubjcetID")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("Subjectid")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("TeacherID")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("UpdateBY")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("GroupID");
+
+                    b.HasIndex("Subjectid");
+
+                    b.HasIndex("TeacherID");
+
+                    b.ToTable("Lesson");
                 });
 
             modelBuilder.Entity("LMS.Domain.Entity.Subject", b =>
@@ -621,6 +677,12 @@ namespace LMS.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("LMS.Domain.Entity.Subject", "Subject")
+                        .WithMany()
+                        .HasForeignKey("Subjectid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("LMS.Domain.Entity.Teacher", "Teachers")
                         .WithMany()
                         .HasForeignKey("TeacherID")
@@ -628,6 +690,35 @@ namespace LMS.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Groups");
+
+                    b.Navigation("Subject");
+
+                    b.Navigation("Teachers");
+                });
+
+            modelBuilder.Entity("LMS.Domain.Entity.Lessons", b =>
+                {
+                    b.HasOne("LMS.Domain.Entity.Group", "Groups")
+                        .WithMany()
+                        .HasForeignKey("GroupID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LMS.Domain.Entity.Subject", "Subject")
+                        .WithMany()
+                        .HasForeignKey("Subjectid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LMS.Domain.Entity.Teacher", "Teachers")
+                        .WithMany()
+                        .HasForeignKey("TeacherID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Groups");
+
+                    b.Navigation("Subject");
 
                     b.Navigation("Teachers");
                 });

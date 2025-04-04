@@ -32,11 +32,10 @@ public  class DatabaseContext : IdentityDbContext<ApplicationUser>
     public DbSet<Contract> Contracts { get; set; }
     public DbSet<Faculty> Faculties { get; set; }
     public DbSet<Group> Groups { get; set; }
-    public DbSet<Lesson> Lessons { get; set; }
     public DbSet<Subject> Subjects { get; set; }
     public DbSet<Teacher> Teachers { get; set; }
     public DbSet<TuitionFee> TuitionFees { get; set; }
-
+    public DbSet<Lesson> Lessons { get; set; }
 
 
     protected override void OnModelCreating(ModelBuilder builder)
