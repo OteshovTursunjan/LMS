@@ -1,7 +1,7 @@
-﻿using LMS.Application.DTO.User;
+﻿using LMS.Application.DTO.Create;
+using LMS.Application.DTO.User;
 using LMS.Application.Feature.User.Command;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LMS.API.Controllers
@@ -28,6 +28,14 @@ namespace LMS.API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             var res = await mediator.Send(new  LoginUserCommand(loginUserModel));
+            return Ok(res);
+        }
+        [HttpPut("RegisterTeacher")]
+        public async Task<IActionResult> RegisterTeacher(TeacherCreateModel teacherCreateModel)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            var res = await mediator.Send(new RegisterTeacherCommand(teacherCreateModel));
             return Ok(res);
         }
         [HttpGet]

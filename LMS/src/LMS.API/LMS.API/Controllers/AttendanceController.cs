@@ -2,10 +2,13 @@
 using LMS.Application.Feature.Attendance.Command;
 using LMS.Application.Feature.Attendance.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LMS.API.Controllers;
-
+[Authorize(Policy = "Teacher")]
+[ApiController]
+[Route("api/[controller]")]
 public class AttendanceController : Controller
 {
    private readonly IMediator mediator;

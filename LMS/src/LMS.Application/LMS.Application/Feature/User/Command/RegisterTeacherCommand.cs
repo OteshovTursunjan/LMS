@@ -6,7 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LMS.Application.Feature.Teacher.Command;
+namespace LMS.Application.Feature.User.Command;
 
-public record CreateTeacherCommand(TeacherCreateModel teacherDTO) : IRequest<bool>;
+public  record RegisterTeacherCommand(TeacherCreateModel teacherCreateModel) : IRequest<bool>;
+
 

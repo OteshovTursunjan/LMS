@@ -94,6 +94,7 @@ namespace LMS.API
             {
                 options.AddPolicy("User", policy => policy.RequireClaim(ClaimTypes.Role, "User"));
                 options.AddPolicy("Admin", policy => policy.RequireClaim(ClaimTypes.Role, "Admin"));
+                options.AddPolicy("Teacher", policy => policy.RequireClaim(ClaimTypes.Role, "Teacher"));
             });
 
             // Настройка CORS

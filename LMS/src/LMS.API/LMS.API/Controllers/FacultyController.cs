@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LMS.API.Controllers;
-[Authorize] 
+[Authorize(Policy = "Admin")] 
 [ApiController]
 [Route("api/[controller]")]
 public class FacultyController : Controller
