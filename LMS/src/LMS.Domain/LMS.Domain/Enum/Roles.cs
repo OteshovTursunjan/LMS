@@ -9,6 +9,7 @@ namespace LMS.Domain.Enum
     public enum Roles
     {
         User,
+        Teacher,
         Admin,
         SuperAdmin
     }

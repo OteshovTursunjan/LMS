@@ -9,7 +9,6 @@ namespace LMS.Application.DTO.Create
 {
     public  class TuitionFeeModel
     {
-        public Faculty Faculty { get; set; }
         public Guid FacultyId { get; set; }
         public int Summa { get; set; }
     }
