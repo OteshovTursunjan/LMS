@@ -36,6 +36,7 @@ public  class DatabaseContext : IdentityDbContext<ApplicationUser>
     public DbSet<Teacher> Teachers { get; set; }
     public DbSet<TuitionFee> TuitionFees { get; set; }
     public DbSet<Lesson> Lessons { get; set; }
+    public DbSet<ExamLogs> ExamLogs { get; set; }
 
 
     protected override void OnModelCreating(ModelBuilder builder)
