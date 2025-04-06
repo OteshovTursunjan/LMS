@@ -20,12 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Feature\AcademicGrade\Command\" />
-    <Folder Include="Feature\AcademicGrade\Handler\" />
-    <Folder Include="Feature\AcademicGrade\Queries\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\LMS.Domain\LMS.Domain\LMS.Domain.csproj" />
     <ProjectReference Include="..\..\LMS.Infrastructure\LMS.Infrastructure\LMS.Infrastructure.csproj" />
   </ItemGroup>
