@@ -11,6 +11,7 @@ namespace LMS.Domain.Entity
     {
         public string Name { get; set; }
         public string Tutor { get; set; }
+        public Guid UserID  { get; set; }
         public string? CreatBy { get; set; }
         public DateTime? CreatedOn { get; set; }
 
