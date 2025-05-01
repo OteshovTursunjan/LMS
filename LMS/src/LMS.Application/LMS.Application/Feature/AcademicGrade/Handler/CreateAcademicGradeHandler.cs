@@ -20,7 +20,7 @@ public class CreateAcademicGradeHandler : IRequestHandler<CreateAcademicGradeCom
 
     public async Task<bool> Handle(CreateAcademicGradeCommand request, CancellationToken cancellationToken)
     {
-   //   var grade = await _academinGradeRepository.GetFirstAsync(u => u.AccountID == request.AcademicGradeCreateModel.UserId 
+   //      var grade = await _academinGradeRepository.GetFirstAsync(u => u.AccountID == request.AcademicGradeCreateModel.UserId 
      // && u.SubjectId == request.AcademicGradeCreateModel.SubjectId);
        // if (grade != null)
        // {

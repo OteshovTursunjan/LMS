@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LMS.Infrastructure.Repository.lmpl;
 
-public  class TeacherRepository : BaseRepository<Teacher> , ITeacherRepository
+public  class TeacherRepository : BaseRepository<LMS.Domain.Entity.Teacher> , ITeacherRepository
 {
     public TeacherRepository(DatabaseContext databaseContext) : base(databaseContext) { }
 }

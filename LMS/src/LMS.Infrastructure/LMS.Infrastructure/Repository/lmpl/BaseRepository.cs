@@ -54,7 +54,7 @@ public  class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity :
         var entity = await DbSet.Where(predicate).FirstOrDefaultAsync();
 
         if (entity == null)
-            throw new ResourceNotFound(typeof(TEntity));
+            return entity;
 
         return entity;
     }

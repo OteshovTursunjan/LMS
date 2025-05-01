@@ -3,10 +3,13 @@ using LMS.Application.DTO.Update;
 using LMS.Application.Feature.TuitionFee.Command;
 using LMS.Application.Feature.TuitionFee.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LMS.API.Controllers;
-
+[Authorize(Policy = "Admin")]
+[ApiController]
+[Route("api/[controller]")]
 public class TuitionFeeController : Controller
 {
     private readonly IMediator mediator;

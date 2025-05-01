@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LMS.Infrastructure.Repository
 {
-    public  interface ITeacherRepository : IBaseRepository<Teacher>
+    public  interface ITeacherRepository : IBaseRepository<LMS.Domain.Entity.Teacher>
     {
     }
 }
