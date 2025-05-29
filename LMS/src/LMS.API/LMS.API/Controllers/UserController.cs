@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LMS.API.Controllers
 {
-  
+//S
     public class UserController : Controller
     {
         private readonly IMediator mediator;
