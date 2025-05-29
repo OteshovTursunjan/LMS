@@ -38,11 +38,19 @@ public class SubjectController : Controller
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
-        var res = await mediator.Send(new  UpdateSubjectCommand(subjectUpdateModel));
+        var res = await mediator.Send(new UpdateSubjectCommand(subjectUpdateModel));
         return Ok(res);
     }
     [HttpDelete("DeleteSubject")]
     public async Task<IActionResult> DeleteSubject(Guid id)
+    {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+        var res = await mediator.Send(new DeleteSubjectCommand(id));
+        return Ok(res);
+    }
+    [HttpDelete("Delete")]
+    public async Task<IActionResult> Delete(Guid id)
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
