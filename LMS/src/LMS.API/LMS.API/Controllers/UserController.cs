@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace LMS.API.Controllers
 {
 //S
+/// <summary>
+/// </summary>
     public class UserController : Controller
     {
         private readonly IMediator mediator;
@@ -43,5 +45,6 @@ namespace LMS.API.Controllers
         {
             return View();
         }
+
     }
 }
